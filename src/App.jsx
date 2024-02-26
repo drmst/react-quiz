@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 import Button from "./components/Button";
 import Checkbox from "./components/Checkbox";
@@ -6,6 +7,12 @@ import Radio from "./components/Radio";
 import Text from "./components/Text";
 
 function App() {
+
+  const [correctAnswerForNumber, setCorrectAnswerForNumber]=useState(0);
+  const [correctAnswerForText, setCorrectAnswerForText]=useState(0);
+  const [totalCorrectAnswers, setTotalCorrectAnswers]=useState(0);
+
+  setTotalCorrectAnswers(correctAnswerForNumber + correctAnswerForText);
   const questions = [
     {
       question: " Kaç tane büyük okyanus vardır?",
@@ -39,7 +46,10 @@ function App() {
     },
   ];
 
-  // const handleQuiz=()=>{}
+  const handleClick = () => {
+ 
+  }
+  
 
   return (
     <>
@@ -47,12 +57,13 @@ function App() {
         <h1>Coğrafya Sınavı</h1>
       </div>
       <form>
-        <Number questions={questions} />
+        <Number questions={questions} setCorrectAnswerForNumber={setCorrectAnswerForNumber}/>
         <Checkbox questions={questions} />
-        <Radio questions={questions} />
-        <Text questions={questions} />
+        <Radio questions={questions}  />
+        <Text questions={questions} setCorrectAnswerForText={setCorrectAnswerForText}/>
       </form>
       <Button />
+      <p>Doğru cevap sayısı= {totalCorrectAnswers}</p>
     </>
   );
 }
