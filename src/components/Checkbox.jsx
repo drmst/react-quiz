@@ -1,7 +1,7 @@
 import React from "react";
 
 const Checkbox = ({ questions }) => {
-  const checkboxInput = document.querySelector("input");
+
   const handleClick = () => {
     console.log(checkboxInput.value);
   };

@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 
 const Number = ({ questions,setCorrectAnswerForNumber }) => {
-  const [answer, setAnswer] = useState("");
-
-
+  const [answer, setAnswer] = useState(0);
 
   const handleClick = (e) => {
     e.preventDefault();
-    if (answer==="6") {
+    if (answer==6) {
       setCorrectAnswerForNumber(1)
     } else{
       setCorrectAnswerForNumber(0);

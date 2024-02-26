@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 const Text = ({ questions, setCorrectAnswerForText }) => {
   const [answer, setAnswer] = useState("");
+
   const handleClick = (e) => {
     e.preventDefault();
     if (answer.toLowerCase() === "afrika") {
@@ -10,6 +11,7 @@ const Text = ({ questions, setCorrectAnswerForText }) => {
       setCorrectAnswerForText(0);
     }
   };
+  
   return (
     <React.Fragment>
       <p>Soru: {questions[3].question}</p>

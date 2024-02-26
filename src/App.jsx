@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import "./App.css";
 import Button from "./components/Button";
 import Checkbox from "./components/Checkbox";
@@ -12,7 +12,10 @@ function App() {
   const [correctAnswerForText, setCorrectAnswerForText]=useState(0);
   const [totalCorrectAnswers, setTotalCorrectAnswers]=useState(0);
 
-  setTotalCorrectAnswers(correctAnswerForNumber + correctAnswerForText);
+  useEffect(() => {
+    setTotalCorrectAnswers(correctAnswerForNumber + correctAnswerForText);
+  }, [correctAnswerForNumber, correctAnswerForText]);
+  
   const questions = [
     {
       question: " Kaç tane büyük okyanus vardır?",
